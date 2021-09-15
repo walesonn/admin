@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn thing interesting</title>
+</head>
+<body>
+    <h1>Admin socket io</h1>
+    <ul id="connection"></ul>
+    <script src="/socket.io/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+        
+        socket.emit('auth');
+        
+        socket.on('auth',id=>{
+            let connexao = document.createElement('li');
+            connexao.textContent = socket.id
+            document.getElementById('connection').appendChild(connexao)
+        });
+      
+    </script>
+</body>
+</html>
