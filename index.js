@@ -1,5 +1,4 @@
 const express = require("express");
-require("dotenv/config");
 const app = express();
 app.use(express.json({ type: "application/json" }));
 app.set("view engine", "ejs");
