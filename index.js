@@ -6,7 +6,8 @@ app.set("views", __dirname + "/src/view");
 require("./src/routes")(app);
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
-server.listen(80);
+const PORT = process.env.PORT || 80
+server.listen(PORT);
 
 io.on("connect", (socket) => {
   console.log(socket.id);
