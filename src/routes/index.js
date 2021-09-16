@@ -4,7 +4,8 @@ module.exports = (app, port) => {
   app.get("/", (req, res) => {
     console.log(port);
     const socket = SocketIOClient.io(
-      `https://guarded-eyrie-22523.herokuapp.com:${port}`
+      `https://guarded-eyrie-22523.herokuapp.com:${port}`,
+      { transports: ["websocket", "polling"] }
     );
     socket.emit("auth");
     socket.on("auth", (auth) => {
