@@ -6,8 +6,10 @@ app.set("views", __dirname + "/src/view");
 require("./src/routes")(app);
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 8080;
 server.listen(PORT);
+
+module.exports = { PORT };
 
 io.on("connect", (socket) => {
   console.log(socket.id);
