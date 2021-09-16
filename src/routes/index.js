@@ -4,8 +4,7 @@ module.exports = (app) => {
     const socket = SocketIOClient.io("http://localhost");
     socket.emit("auth");
     socket.on("auth", (auth) => {
-      
+      res.render("index", { auth: auth });
     });
-    res.render("index");
   });
 };
