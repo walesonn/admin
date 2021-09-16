@@ -1,8 +1,8 @@
 const SocketIOClient = require("socket.io-client");
-const port = require("../../index").PORT;
 
-module.exports = (app) => {
+module.exports = (app, port) => {
   app.get("/", (req, res) => {
+    console.log(port);
     const socket = SocketIOClient.io(
       `https://guarded-eyrie-22523.herokuapp.com:${port}`
     );

@@ -3,10 +3,10 @@ const app = express();
 app.use(express.json({ type: "application/json" }));
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/src/view");
-require("./src/routes")(app);
+const PORT = process.env.PORT || 80;
+require("./src/routes")(app, PORT);
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
-const PORT = process.env.PORT || 8080;
 server.listen(PORT);
 
 module.exports = { PORT };
